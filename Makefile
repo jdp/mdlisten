@@ -1,9 +1,20 @@
-OUT=mdlisten
+DESTDIR=
+PREFIX=/usr/local
+BINDIR=$(DESTDIR)$(PREFIX)/bin
+SRC=main.m QueryListener.m
+BIN=mdlisten
 
-$(OUT): main.m QueryListener.m
+$(BIN): $(SRC)
 	clang $^ -Wall -Werror -fmodules -mmacosx-version-min=10.6 -o $@
 
 clean:
-	-rm $(OUT)
+	-rm $(BIN)
 
-.PHONY: clean
+install: $(BIN)
+	install -d $(BINDIR)
+	install -c $< $(BINDIR)/$<
+
+uninstall: $(BINDIR)/$(BIN)
+	rm -f $<
+
+.PHONY: clean install uninstall

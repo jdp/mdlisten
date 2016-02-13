@@ -5,7 +5,8 @@ It’s like [`mdfind(1)`][mdfind] with the `-live` option except that it outputs
 
 ### Install
 
-Run `make` to build the `mdlisten` executable and then put it in your [`PATH`][path-var].
+Run `make` and then `make install`.
+By default it installs to /usr/local, install with a customized `PREFIX` like `make install PREFIX=/opt` to change the install location.
 
 ### Usage
 
