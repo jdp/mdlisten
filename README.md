@@ -18,9 +18,8 @@ mdlisten <query>
 Upload screenshots to your web host as you take them.
 
 ``` bash
-./mdlisten kMDItemIsScreenCapture = 1 | while read -r filename; do
+mdlisten kMDItemIsScreenCapture = 1 | while read -r filename; do
     scp "$filename" you@domain.com:/var/www/domain.com/screenshots
-    rm "$filename"
 done
 ```
 
