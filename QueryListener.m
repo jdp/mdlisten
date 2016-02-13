@@ -33,6 +33,7 @@
     }
     _query.delegate = nil;
     [_query release];
+    [_resultHandler release];
     [super dealloc];
 }
 
